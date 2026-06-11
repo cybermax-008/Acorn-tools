@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, MemoryRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { Analytics } from '@vercel/analytics/react';
 import { isCapacitor } from './lib/fileUtils';
 import App from './App';
 import HomePage from './components/HomePage';
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           </Route>
         </Routes>
       </Router>
+      {!isCapacitor() && <Analytics />}
     </HelmetProvider>
   </React.StrictMode>
 );
